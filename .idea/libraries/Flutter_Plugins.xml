@@ -6,8 +6,7 @@
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/network_info_plus_macos-1.3.0" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/network_info_plus-2.1.4+1" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/network_info_plus_windows-1.0.2" />
-      <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/internet_speed_test-1.5.0" />
-      <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/data_usage-1.0.3" />
+      <root url="file://C:/tools/flutter/.pub-cache/git/data_usage_patched-15dd128ca0604ea39b88fad2fdd5bfa9d195d420" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
