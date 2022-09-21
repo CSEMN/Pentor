@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
