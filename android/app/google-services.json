@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "761493072136",
+    "project_id": "pentor-22",
+    "storage_bucket": "pentor-22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761493072136:android:5946249a682ea5fdede4bd",
+        "android_client_info": {
+          "package_name": "com.fluteeks.pentor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761493072136-lfa4ngsb5hiii0e0j094fim1gvv0ei48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdQBwtv6Pro-GQCKLJxjWWnYPIiQPLAX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761493072136-lfa4ngsb5hiii0e0j094fim1gvv0ei48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

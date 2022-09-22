@@ -45,6 +45,7 @@ dependencies:
   data_usage:
     git:
       url: https://github.com/fullflash/data_usage_patched
+  firebase_core: ^1.22.0
 
 
 dev_dependencies:
