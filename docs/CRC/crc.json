@@ -1,0 +1,114 @@
+[
+    {
+      "name": "Main",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Show Network Info",
+        "Navigate to Speed Test",
+        " Navigate to Ping Test",
+        " Navigate to Network Devices",
+        "Navigate to Data usage",
+        "Navigate to DNS Test",
+        "Navigate to Network Logger"
+      ],
+      "collaborators": [
+        ""
+      ]
+    },
+    {
+      "name": "Basic Information",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "SSID\r",
+        "BSSID\r",
+        "Security\r",
+        "Band\r",
+        "IP Address\r",
+        "Link Speed"
+      ],
+      "collaborators": [
+        "network_info_plus"
+      ]
+    },
+    {
+      "name": "Speed Test",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Download Speed",
+        "Download Speed",
+        "Progress Bar",
+        "Test Results"
+      ],
+      "collaborators": [
+        "internet_speed_test"
+      ]
+    },
+    {
+      "name": "Ping Test",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Server ",
+        "Ping (ms)",
+        "Average (ms)",
+        "Timeouts",
+        "Delete server",
+        "Add Server",
+        "Popular Servers"
+      ],
+      "collaborators": [
+        "dart_ping"
+      ]
+    },
+    {
+      "name": "DNS Test",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "show DNS details"
+      ],
+      "collaborators": [
+        "dns_client"
+      ]
+    },
+    {
+      "name": "Connected Devices Info",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Scan For devices",
+        "No. Of Devices",
+        "Device type ",
+        "Device ip",
+        "Device MAC ",
+        "Refresh"
+      ],
+      "collaborators": [
+        "lan_scanner"
+      ]
+    },
+    {
+      "name": "Apps Data Usage",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Wifi Usage",
+        "Data Usage ",
+        "Today Usage",
+        "Usage from Data "
+      ],
+      "collaborators": [
+        "data_usage"
+      ]
+    }
+  ]
