@@ -191,6 +191,13 @@
             </list>
           </value>
         </entry>
+        <entry key="get">
+          <value>
+            <list>
+              <option value="C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="http">
           <value>
             <list>
@@ -434,6 +441,7 @@
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2/lib" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/lib" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-0.14.3/lib" />
+      <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.5/lib" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib" />
       <root url="file://C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib" />
