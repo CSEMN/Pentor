@@ -1,4 +1,3 @@
-
 abstract class FirebaseModel{
   String add(FirebaseModel model);
   FirebaseModel get(String documentID);
