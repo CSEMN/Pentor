@@ -6,6 +6,7 @@ import 'package:pentor/locale/app_translations.dart';
 import 'package:pentor/locale/locale_controller.dart';
 import 'package:pentor/view/home_page.dart';
 import 'package:get/get.dart';
+import './themes.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,9 +29,8 @@ class MyApp extends StatelessWidget {
       locale: localeCtrl.initialLocale,
       fallbackLocale:  const Locale('en'),
       translations: AppTranslations(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Themes.customLightTheme,
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
   }
