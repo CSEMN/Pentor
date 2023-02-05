@@ -108,13 +108,13 @@ class WifiInfo {
       developer.log('Failed to get Wifi gateway address', error: e);
       wifiGatewayIP = 'Failed to get Wifi gateway address';
     }
-    WifiInfo wifiInfo = new WifiInfo(wifiName!, wifiBSSID!, wifiIPv4!,
+    WifiInfo wifiInfo = new WifiInfo(wifiName!.replaceAll('"', ''), wifiBSSID!, wifiIPv4!,
         wifiIPv6!, wifiBroadcast!, wifiGatewayIP!, wifiSubmask!);
 
     return Future(() => wifiInfo);
   }
 
-  String? get name => _name;
+  String get name => _name;
 
   get bssid => _bssid;
 

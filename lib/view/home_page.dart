@@ -24,7 +24,9 @@ class HomePage extends StatelessWidget {
                     Icons.wifi,
                     size: 50.0,
                   ),
-                  title: Text(controller.wifiInfo.name!),
+                  title: Text(controller.wifiInfo.name,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   subtitle: Text("WIFI Connection"),
                   children: [
                     wifiInfoTable(controller.wifiInfo),
@@ -35,8 +37,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget wifiInfoTable(WifiInfo wifiInfo) {
-    return DataTable(
-        columns: [
+    return DataTable(columns: [
       DataColumn(
           label: Text('Field',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
@@ -46,31 +47,31 @@ class HomePage extends StatelessWidget {
     ], rows: [
       DataRow(cells: [
         DataCell(Text('Name')),
-        DataCell(Text(wifiInfo.name!)),
+        DataCell(Text(wifiInfo.name)),
       ]),
       DataRow(cells: [
         DataCell(Text('IPv4')),
-        DataCell(Text(wifiInfo.ipv4!)),
+        DataCell(Text(wifiInfo.ipv4)),
       ]),
       DataRow(cells: [
         DataCell(Text('Subnet')),
-        DataCell(Text(wifiInfo.subnet!)),
+        DataCell(Text(wifiInfo.subnet)),
       ]),
       DataRow(cells: [
         DataCell(Text('IPv6')),
-        DataCell(Text(wifiInfo.ipv6!)),
+        DataCell(Text(wifiInfo.ipv6)),
       ]),
       DataRow(cells: [
         DataCell(Text('Gateway')),
-        DataCell(Text(wifiInfo.gateway!)),
+        DataCell(Text(wifiInfo.gateway)),
       ]),
       DataRow(cells: [
         DataCell(Text('Broadcast')),
-        DataCell(Text(wifiInfo.broadcast!)),
+        DataCell(Text(wifiInfo.broadcast)),
       ]),
       DataRow(cells: [
         DataCell(Text('BSSID')),
-        DataCell(Text(wifiInfo.bssid!)),
+        DataCell(Text(wifiInfo.bssid)),
       ]),
     ]);
   }
