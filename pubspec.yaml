@@ -48,6 +48,7 @@ dependencies:
   shared_preferences: ^2.0.15
   get_storage: ^2.0.3
   expansion_tile_card: ^2.0.0
+  permission_handler: ^10.2.0
 
 
 
