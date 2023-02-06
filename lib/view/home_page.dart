@@ -19,7 +19,9 @@ class HomePage extends StatelessWidget {
               title: Text('HOME_PAGE_TITLE'.tr),
             ),
             body: Column(
-              children: [connectivityWidget(controller)],
+              children: [
+                connectivityWidget(controller),
+              ],
             )));
   }
 
@@ -37,10 +39,12 @@ class HomePage extends StatelessWidget {
               ? controller.askForLocationPermission()
               : controller.askForPhonePermission();
         },
-        title: Text((controller.locationPermissionError
-            ?'Location':'Phone') +" Permission Not Granted",
+        title: Text(
+            (controller.locationPermissionError
+                ? 'Location Permission Not Granted'.tr
+                : 'Phone Permission Not Granted'.tr),
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        subtitle: Text("Tap To Grant"),
+        subtitle: Text("Tap To Grant".tr),
       );
     } else {
       switch (controller.connectivityResult) {
@@ -51,9 +55,9 @@ class HomePage extends StatelessWidget {
               Icons.not_interested,
               size: 50.0,
             ),
-            title: Text("NOT CONNECTED",
+            title: Text("NOT CONNECTED".tr,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("No Connection Found"),
+            subtitle: Text("No Connection Found".tr),
           );
         case ConnectivityResult.wifi:
           return ExpansionTileCard(
@@ -64,7 +68,7 @@ class HomePage extends StatelessWidget {
             ),
             title: Text(controller.wifiInfo.name,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("WIFI Network Connection"),
+            subtitle: Text("WIFI Network Connection".tr),
             children: [
               wifiInfoTable(controller.wifiInfo),
             ],
@@ -78,7 +82,7 @@ class HomePage extends StatelessWidget {
             ),
             title: Text(controller.mobileNetworkInfo.name,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("Mobile Network Connection"),
+            subtitle: Text("Mobile Network Connection".tr),
             children: [mobileNetworkInfoTable(controller.mobileNetworkInfo)],
           );
         default:
@@ -89,9 +93,9 @@ class HomePage extends StatelessWidget {
               color: Colors.red,
               size: 50.0,
             ),
-            title: Text("ERROR",
+            title: Text("ERROR".tr,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("CONNECTION ERROR"),
+            subtitle: Text("CONNECTION ERROR".tr),
           );
       }
     }
@@ -100,14 +104,14 @@ class HomePage extends StatelessWidget {
   Widget wifiInfoTable(WifiInfo wifiInfo) {
     return DataTable(columns: [
       DataColumn(
-          label: Text('Field',
+          label: Text('Field'.tr,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
       DataColumn(
-          label: Text('Value',
+          label: Text('Value'.tr,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
     ], rows: [
       DataRow(cells: [
-        DataCell(Text('Name')),
+        DataCell(Text('Name'.tr)),
         DataCell(Text(wifiInfo.name)),
       ]),
       DataRow(cells: [
@@ -123,12 +127,12 @@ class HomePage extends StatelessWidget {
         DataCell(Text(wifiInfo.ipv6)),
       ]),
       DataRow(cells: [
-        DataCell(Text('Gateway')),
+        DataCell(Text('Gateway'.tr)),
         DataCell(Text(wifiInfo.gateway)),
       ]),
       DataRow(cells: [
-        DataCell(Text('Broadcast')),
-        DataCell(Text(wifiInfo.broadcast)),
+        DataCell(Text('Broadcast'.tr)),
+        DataCell(Text(wifiInfo.broadcast.toString().substring(1))),
       ]),
       DataRow(cells: [
         DataCell(Text('BSSID')),
@@ -140,23 +144,23 @@ class HomePage extends StatelessWidget {
   Widget mobileNetworkInfoTable(MobileNetworkInfo mobileNetworkInfo) {
     return DataTable(columns: [
       DataColumn(
-          label: Text('Field',
+          label: Text('Field'.tr,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
       DataColumn(
-          label: Text('Value',
+          label: Text('Value'.tr,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
     ], rows: [
       DataRow(cells: [
-        DataCell(Text('Name')),
+        DataCell(Text('Name'.tr)),
         DataCell(Text(mobileNetworkInfo.name)),
       ]),
       DataRow(cells: [
-        DataCell(Text('Type')),
+        DataCell(Text('Type'.tr)),
         DataCell(Text(mobileNetworkInfo.networkType)),
       ]),
       DataRow(cells: [
-        DataCell(Text('Strength')),
-        DataCell(Text(mobileNetworkInfo.signalStrength)),
+        DataCell(Text('Strength'.tr)),
+        DataCell(Text(mobileNetworkInfo.signalStrength.tr)),
       ]),
     ]);
   }
