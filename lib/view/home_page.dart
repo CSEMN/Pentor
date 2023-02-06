@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
       ]),
       DataRow(cells: [
         DataCell(Text('Broadcast'.tr)),
-        DataCell(Text(wifiInfo.broadcast.toString().substring(1))),
+        DataCell(Text(wifiInfo.broadcast.toString().replaceAll('/', ''))),
       ]),
       DataRow(cells: [
         DataCell(Text('BSSID')),
