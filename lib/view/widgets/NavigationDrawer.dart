@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pentor/themes.dart';
-import 'package:pentor/view/data_usage_page.dart';
-import 'package:pentor/view/dns_test_page.dart';
-import 'package:pentor/view/home_page.dart';
 import 'package:pentor/view/ping_test_page.dart';
-import 'package:pentor/view/lan_scanner_page.dart';
-import 'package:pentor/view/speed_test_page.dart';
 import 'package:pentor/view/setting_page.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 
@@ -27,10 +22,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               urlImage: urlImage,
               name: name,
               email: email,
-              onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => DataUsagePage(),
-              )),
-            ),
+              onClicked: () => NavDrawerWidgetController.OpenDataUsagePage()),
             Container(
               padding: padding,
               child: Column(
@@ -41,53 +33,47 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'Home'.tr,
                       icon: Icons.home,
                       onClicked: () =>
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ))),
+                          NavDrawerWidgetController.OpenHomePage()
+                  ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Data Usage'.tr,
                       icon: Icons.data_usage,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => DataUsagePage()))),
+                      onClicked: () =>  NavDrawerWidgetController.OpenDataUsagePage()),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'DNS Test'.tr,
                       icon: Icons.dns,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => DnsTestPage()))),
+                      onClicked: () => NavDrawerWidgetController.OpenDnsTestPage()
+                  ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'LAN Scanner'.tr,
                       icon: Icons.lan,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => LanScannerPage()))),
+                      onClicked: () => NavDrawerWidgetController.OpenLanScannerPage()
+                  ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Internet Speed Test'.tr,
                       icon: Icons.speed,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                               builder: (context) => SpeedTestPage()))),
+                      onClicked: () => NavDrawerWidgetController.OpenSpeedTestPage()
+                  ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Ping Test'.tr,
                       icon: Icons.network_ping,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => PingTestPage()))),
+                      onClicked: () => Get.to( PingTestPage()
+                      )
+                  ),
                   const SizedBox(height: 24),
                   Divider(color: Colors.white70),
                   const SizedBox(height: 24),
                   buildMenuItem(
                       text: 'Settings'.tr,
                       icon: Icons.settings,
-                      onClicked: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => SettingPage()))),
+                      onClicked: () => Get.to( SettingPage()
+                      )
+                  ),
                 ],
               ),
             ),
@@ -121,7 +107,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: textStyle,
                   ),
                 ],
               ),
@@ -143,3 +129,5 @@ class NavigationDrawerWidget extends StatelessWidget {
     );
   }
 }
+
+
