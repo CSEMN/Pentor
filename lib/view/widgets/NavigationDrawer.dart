@@ -59,6 +59,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'Settings'.tr,
                       icon: Icons.settings,
                       onClicked: _navController.openSettingsPage),
+                  buildMenuItem(
+                      text: 'SW LANG',
+                      icon: Icons.language,
+                      onClicked: () {
+                        if (Get.locale == Locale('en'))
+                          Get.updateLocale(Locale('ar'));
+                        else
+                          Get.updateLocale(Locale('en'));
+                      })
                 ],
               ),
             ),
