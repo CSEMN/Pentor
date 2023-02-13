@@ -6,21 +6,22 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:pentor/model/mobile_network_info.dart';
 import 'package:pentor/model/wifi_info.dart';
 import 'package:pentor/themes.dart';
+import 'package:pentor/view/widgets/NavigationDrawer.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  final _homeController = Get.put(HomePageController(),permanent: true);
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
         init: HomePageController(),
         builder: (controller) => Scaffold(
+          drawer: NavigationDrawerWidget(),
             appBar: AppBar(
               title: Text('HOME_PAGE_TITLE'.tr),
             ),
             body: Column(
               children: [
-                connectivityWidget(controller),
+                connectivityWidget(_homeController),
               ],
             )));
   }
