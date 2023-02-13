@@ -25,27 +25,27 @@ class NavDrawerWidgetController extends GetxController {
   }
 
   static OpenDataUsagePage() {
-    Get.to(DataUsagePage());
+    Get.off(()=>DataUsagePage());
   }
 
   static OpenHomePage() {
-    Get.to(HomePage());
+    Get.off(()=>HomePage());
   }
 
   static OpenLanScannerPage() {
-    Get.to(LanScannerPage());
+    Get.off(()=>LanScannerPage());
   }
   static OpenDnsTestPage() {
-    Get.to(DnsTestPage());
+    Get.off(()=>DnsTestPage());
   }
   static OpenPingTestPage() {
-    Get.to(PingTestPage());
+    Get.off(()=>PingTestPage());
   }
   static OpenSpeedTestPage() {
-    Get.to(SpeedTestPage());
+    Get.off(()=>SpeedTestPage());
   }
   static OpenSettingsPage() {
-    Get.to(SettingPage());
+    Get.off(()=>SettingPage());
   }
   @override
   void onReady() {

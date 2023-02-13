@@ -6,7 +6,7 @@ import 'package:pentor/view/setting_page.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = EdgeInsets.symmetric(horizontal: 10);
   @override
   Widget build(BuildContext context) {
     final name = 'Ahmed';
@@ -23,51 +23,44 @@ class NavigationDrawerWidget extends StatelessWidget {
               name: name,
               email: email,
               onClicked: () => NavDrawerWidgetController.OpenDataUsagePage()),
+
             Container(
               padding: padding,
               child: Column(
                 children: [
-                  const SizedBox(height: 12),
-                  const SizedBox(height: 24),
+                  Divider(color: Colors.white70),
                   buildMenuItem(
                       text: 'Home'.tr,
                       icon: Icons.home,
                       onClicked: () =>
                           NavDrawerWidgetController.OpenHomePage()
                   ),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Data Usage'.tr,
                       icon: Icons.data_usage,
                       onClicked: () =>  NavDrawerWidgetController.OpenDataUsagePage()),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'DNS Test'.tr,
                       icon: Icons.dns,
                       onClicked: () => NavDrawerWidgetController.OpenDnsTestPage()
                   ),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'LAN Scanner'.tr,
                       icon: Icons.lan,
                       onClicked: () => NavDrawerWidgetController.OpenLanScannerPage()
                   ),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Internet Speed Test'.tr,
                       icon: Icons.speed,
                       onClicked: () => NavDrawerWidgetController.OpenSpeedTestPage()
                   ),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Ping Test'.tr,
                       icon: Icons.network_ping,
                       onClicked: () => Get.to( PingTestPage()
                       )
                   ),
-                  const SizedBox(height: 24),
                   Divider(color: Colors.white70),
-                  const SizedBox(height: 24),
                   buildMenuItem(
                       text: 'Settings'.tr,
                       icon: Icons.settings,
