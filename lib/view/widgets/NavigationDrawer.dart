@@ -7,23 +7,24 @@ import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 10);
+  final _navController = Get.put(NavDrawerWidgetController(), permanent: true);
+
   @override
   Widget build(BuildContext context) {
     final name = 'Ahmed';
     final email = 'Ahmed@abs.com';
     final urlImage =
-     "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80";
+        "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80";
     return Drawer(
       child: Material(
         color: Themes.customLightTheme.primaryColor,
         child: ListView(
           children: <Widget>[
             buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => NavDrawerWidgetController.OpenDataUsagePage()),
-
+                urlImage: urlImage,
+                name: name,
+                email: email,
+                onClicked: _navController.openDataUsagePage),
             Container(
               padding: padding,
               child: Column(
@@ -32,41 +33,32 @@ class NavigationDrawerWidget extends StatelessWidget {
                   buildMenuItem(
                       text: 'Home'.tr,
                       icon: Icons.home,
-                      onClicked: () =>
-                          NavDrawerWidgetController.OpenHomePage()
-                  ),
+                      onClicked: _navController.openHomePage),
                   buildMenuItem(
                       text: 'Data Usage'.tr,
                       icon: Icons.data_usage,
-                      onClicked: () =>  NavDrawerWidgetController.OpenDataUsagePage()),
+                      onClicked: _navController.openDataUsagePage),
                   buildMenuItem(
                       text: 'DNS Test'.tr,
                       icon: Icons.dns,
-                      onClicked: () => NavDrawerWidgetController.OpenDnsTestPage()
-                  ),
+                      onClicked: _navController.openDnsTestPage),
                   buildMenuItem(
                       text: 'LAN Scanner'.tr,
                       icon: Icons.lan,
-                      onClicked: () => NavDrawerWidgetController.OpenLanScannerPage()
-                  ),
+                      onClicked: _navController.openLanScannerPage),
                   buildMenuItem(
                       text: 'Internet Speed Test'.tr,
                       icon: Icons.speed,
-                      onClicked: () => NavDrawerWidgetController.OpenSpeedTestPage()
-                  ),
+                      onClicked: _navController.openSpeedTestPage),
                   buildMenuItem(
                       text: 'Ping Test'.tr,
                       icon: Icons.network_ping,
-                      onClicked: () => Get.to( PingTestPage()
-                      )
-                  ),
+                      onClicked: _navController.openPingTestPage),
                   Divider(color: Colors.white70),
                   buildMenuItem(
                       text: 'Settings'.tr,
                       icon: Icons.settings,
-                      onClicked: () => Get.to( SettingPage()
-                      )
-                  ),
+                      onClicked: _navController.openSettingsPage),
                 ],
               ),
             ),
@@ -114,7 +106,6 @@ class NavigationDrawerWidget extends StatelessWidget {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-
     return ListTile(
       leading: Icon(icon, color: Colors.white),
       title: Text(text, style: textStyle),
@@ -122,5 +113,3 @@ class NavigationDrawerWidget extends StatelessWidget {
     );
   }
 }
-
-

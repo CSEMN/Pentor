@@ -24,27 +24,27 @@ class NavDrawerWidgetController extends GetxController {
     super.onInit();
   }
 
-  static OpenDataUsagePage() {
-    Get.off(()=>DataUsagePage());
+  void openDataUsagePage() {
+    Get.to(()=>DataUsagePage());
   }
 
-  static OpenHomePage() {
+  void openHomePage() {
     Get.off(()=>HomePage());
   }
 
-  static OpenLanScannerPage() {
+  void openLanScannerPage() {
     Get.off(()=>LanScannerPage());
   }
-  static OpenDnsTestPage() {
+  void openDnsTestPage() {
     Get.off(()=>DnsTestPage());
   }
-  static OpenPingTestPage() {
+  void openPingTestPage() {
     Get.off(()=>PingTestPage());
   }
-  static OpenSpeedTestPage() {
+  void openSpeedTestPage() {
     Get.off(()=>SpeedTestPage());
   }
-  static OpenSettingsPage() {
+  void openSettingsPage() {
     Get.off(()=>SettingPage());
   }
   @override

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       translations: AppTranslations(),
       theme: Themes.customLightTheme,
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }

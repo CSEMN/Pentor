@@ -9,8 +9,7 @@ import 'package:pentor/themes.dart';
 import 'package:pentor/view/widgets/NavigationDrawer.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  final _homeController = Get.put(HomePageController(),permanent: true);
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
@@ -22,7 +21,7 @@ class HomePage extends StatelessWidget {
             ),
             body: Column(
               children: [
-                connectivityWidget(controller),
+                connectivityWidget(_homeController),
               ],
             )));
   }
