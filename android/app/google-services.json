@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "761493072136-lfa4ngsb5hiii0e0j094fim1gvv0ei48.apps.googleusercontent.com",
+          "client_id": "761493072136-qnee702kag8j4um8pa95ae9shesgecu4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fluteeks.pentor",
+            "certificate_hash": "5e00cb91ed099d139f2918c14f6acf88f3be3f55"
+          }
+        },
+        {
+          "client_id": "761493072136-lldn0k763dp65avrnvfdm2h6tma3som7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +37,13 @@
             {
               "client_id": "761493072136-lfa4ngsb5hiii0e0j094fim1gvv0ei48.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "761493072136-g40v1a3rt2t36oivuh9bpft7scgp8g9t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluteeks.pentor"
+              }
             }
           ]
         }

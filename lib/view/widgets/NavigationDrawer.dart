@@ -1,34 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pentor/controller/UserController.dart';
 import 'package:pentor/themes.dart';
-import 'package:pentor/view/ping_test_page.dart';
-import 'package:pentor/view/setting_page.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 10);
-  final _navController = Get.put(NavDrawerWidgetController(), permanent: true);
+  final NavDrawerWidgetController _navController =
+      Get.find<NavDrawerWidgetController>();
+  final UserController _userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
-    final name = 'Ahmed';
-    final email = 'Ahmed@abs.com';
-    final urlImage =
-        "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80";
     return Drawer(
       child: Material(
         color: Themes.customLightTheme.primaryColor,
         child: ListView(
           children: <Widget>[
-            buildHeader(
-                urlImage: urlImage,
-                name: name,
-                email: email,
-                onClicked: _navController.openDataUsagePage),
+            GetBuilder<UserController>(builder: (controller) {
+              return buildHeader(
+                  urlImage: _userController.user.photoURL ??
+                      "https://cdn1.iconfinder.com/data/icons/crimes-and-justice/100/14-64.png",
+                  name: _userController.user.displayName ?? "Anonymous".tr,
+                  email: _userController.user.isAnonymous
+                      ? "Guest Account".tr
+                      : _userController.user.email ?? "Guest Account".tr,
+                  onClicked: _navController.openDataUsagePage);
+            }),
             Container(
               padding: padding,
               child: Column(
                 children: [
+                  GetBuilder<UserController>(builder: (controller) {
+                    if (_userController.user.isAnonymous)
+                      return OutlinedButton.icon(
+                          icon: Icon(Icons.login),
+                          onPressed: _userController.signInWithGoogle,
+                          label: Text("Google Sign in".tr));
+                    else
+                      return OutlinedButton.icon(
+                          icon: Icon(Icons.logout),
+                          onPressed: _userController.signOut,
+                          label: Text("Sign Out".tr));
+                  }),
+                  const SizedBox(height: 5),
                   Divider(color: Colors.white70),
                   buildMenuItem(
                       text: 'Home'.tr,
@@ -86,10 +101,10 @@ class NavigationDrawerWidget extends StatelessWidget {
       InkWell(
         child: Container(
           color: Themes.customLightTheme.primaryColor,
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+          padding: EdgeInsets.only(top: 30, left: 10, right: 10),
           child: Row(
             children: [
-              CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
+              CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage),backgroundColor: Themes.accentColor,),
               SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
