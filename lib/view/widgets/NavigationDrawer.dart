@@ -21,10 +21,10 @@ class NavigationDrawerWidget extends StatelessWidget {
               return buildHeader(
                   urlImage: _userController.user.photoURL ??
                       "https://cdn1.iconfinder.com/data/icons/crimes-and-justice/100/14-64.png",
-                  name: _userController.user.displayName ?? "Anonymous",
+                  name: _userController.user.displayName ?? "Anonymous".tr,
                   email: _userController.user.isAnonymous
-                      ? "Guest Account"
-                      : _userController.user.email ?? "Guest Account",
+                      ? "Guest Account".tr
+                      : _userController.user.email ?? "Guest Account".tr,
                   onClicked: _navController.openDataUsagePage);
             }),
             Container(
@@ -36,12 +36,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                       return OutlinedButton.icon(
                           icon: Icon(Icons.login),
                           onPressed: _userController.signInWithGoogle,
-                          label: Text("Google Sign in"));
+                          label: Text("Google Sign in".tr));
                     else
                       return OutlinedButton.icon(
                           icon: Icon(Icons.logout),
                           onPressed: _userController.signOut,
-                          label: Text("Sign Out"));
+                          label: Text("Sign Out".tr));
                   }),
                   const SizedBox(height: 5),
                   Divider(color: Colors.white70),

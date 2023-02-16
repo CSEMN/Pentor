@@ -39,6 +39,10 @@ class _EN {
         'Mobile Network Connection': 'Mobile Network Connection',
         'ERROR': "ERROR",
         'CONNECTION ERROR': 'CONNECTION ERROR',
+        'Anonymous':'Anonymous',
+        'Guest Account':"Guest Account",
+        'Google Sign in':"Google Sign in",
+        "Sign Out":"Sign Out",
       };
 }
 
@@ -73,5 +77,9 @@ class _AR {
         'Mobile Network Connection': 'اتصال شبكة الهاتف',
         'ERROR': "خطأ",
         'CONNECTION ERROR': 'خطأ في الاتصال',
+        'Anonymous':'مجهول',
+        'Guest Account':"حساب زائر",
+        'Google Sign in':"التسجيل بحساب جوجل",
+        "Sign Out":"تسجيل الخروج",
       };
 }
