@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pentor/controller/ConnectivityController.dart';
 import 'package:pentor/controller/HomePageController.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:pentor/model/mobile_network_info.dart';
@@ -9,97 +10,102 @@ import 'package:pentor/themes.dart';
 import 'package:pentor/view/widgets/NavigationDrawer.dart';
 
 class HomePage extends StatelessWidget {
-  final _homeController = Get.put(HomePageController(),permanent: true);
+  final _homeController = Get.put(HomePageController(), permanent: true);
+  final _connectivityController = Get.find<ConnectivityController>();
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomePageController>(
-        init: HomePageController(),
-        builder: (controller) => Scaffold(
-          drawer: NavigationDrawerWidget(),
-            appBar: AppBar(
-              title: Text('HOME_PAGE_TITLE'.tr),
-            ),
-            body: Column(
-              children: [
-                connectivityWidget(_homeController),
-              ],
-            )));
+    return Scaffold(
+        drawer: NavigationDrawerWidget(),
+        appBar: AppBar(
+          title: Text('HOME_PAGE_TITLE'.tr),
+        ),
+        body: Column(
+          children: [
+            GetBuilder<ConnectivityController>(builder: (_)=>connectivityWidget()),
+
+          ],
+        ));
   }
 
-  Widget connectivityWidget(HomePageController controller) {
-    if (controller.locationPermissionError || controller.phonePermissionError) {
-      return ListTile(
-        tileColor: Themes.backgroundColor,
-        leading: Icon(
-          Icons.error_outline,
-          color: Colors.red,
-          size: 50.0,
-        ),
-        onTap: () {
-          controller.locationPermissionError
-              ? controller.askForLocationPermission()
-              : controller.askForPhonePermission();
-        },
-        title: Text(
-            (controller.locationPermissionError
-                ? 'Location Permission Not Granted'.tr
-                : 'Phone Permission Not Granted'.tr),
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        subtitle: Text("Tap To Grant".tr),
-      );
-    } else {
-      switch (controller.connectivityResult) {
-        case ConnectivityResult.none:
-          return ListTile(
-            tileColor: Themes.backgroundColor,
-            leading: Icon(
-              Icons.not_interested,
-              size: 50.0,
-            ),
-            title: Text("NOT CONNECTED".tr,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("No Connection Found".tr),
-          );
-        case ConnectivityResult.wifi:
-          return ExpansionTileCard(
-            expandedTextColor: Themes.primaryColor,
-            leading: Icon(
-              Icons.wifi,
-              size: 50.0,
-            ),
-            title: Text(controller.wifiInfo.name,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("WIFI Network Connection".tr),
-            children: [
-              wifiInfoTable(controller.wifiInfo),
-            ],
-          );
-        case ConnectivityResult.mobile:
-          return ExpansionTileCard(
-            expandedTextColor: Themes.primaryColor,
-            leading: Icon(
-              Icons.signal_cellular_alt,
-              size: 50.0,
-            ),
-            title: Text(controller.mobileNetworkInfo.name,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("Mobile Network Connection".tr),
-            children: [mobileNetworkInfoTable(controller.mobileNetworkInfo)],
-          );
-        default:
-          return ListTile(
-            tileColor: Themes.accentColor,
-            leading: Icon(
-              Icons.error_outline,
-              color: Colors.red,
-              size: 50.0,
-            ),
-            title: Text("ERROR".tr,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            subtitle: Text("CONNECTION ERROR".tr),
-          );
-      }
+  Widget connectivityWidget() {
+    switch (_connectivityController.connectivityStatus) {
+      case ConnectivityResult.none:
+        return ListTile(
+          tileColor: Themes.backgroundColor,
+          leading: Icon(
+            Icons.not_interested,
+            size: 50.0,
+          ),
+          title: Text("NOT CONNECTED".tr,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          subtitle: Text("No Connection Found".tr),
+        );
+      case ConnectivityResult.wifi:
+        return buildWifiTile();
+      case ConnectivityResult.mobile:
+        return buildMobileInfoTile();
+      default:
+        return ListTile(
+          tileColor: Themes.accentColor,
+          leading: Icon(
+            Icons.error_outline,
+            color: Colors.red,
+            size: 50.0,
+          ),
+          title: Text("ERROR".tr,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          subtitle: Text("CONNECTION ERROR".tr),
+        );
     }
+  }
+
+  Widget buildPermissionErrorWidget(String title,void Function() onTap) {
+    return ListTile(
+      tileColor: Themes.backgroundColor,
+      leading: Icon(
+        Icons.error_outline,
+        color: Colors.red,
+        size: 50.0,
+      ),
+      onTap: onTap,
+      title: Text(title,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+      subtitle: Text("Tap To Grant".tr),
+    );
+  }
+
+  Widget buildWifiTile() {
+    return FutureBuilder<WifiInfo>(
+        future: _connectivityController.getWifiInfo,
+        builder: (_, snapshot) {
+          if (snapshot.hasError) {
+            return buildPermissionErrorWidget(snapshot.error.toString(),
+                _connectivityController.askForLocationPermission);
+          } else {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                WifiInfo wifiInfo = snapshot.data!;
+                return ExpansionTileCard(
+                  expandedTextColor: Themes.primaryColor,
+                  leading: Icon(
+                    Icons.wifi,
+                    size: 50.0,
+                  ),
+                  title: Text(wifiInfo.name,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  subtitle: Text("WIFI Network Connection".tr),
+                  children: [
+                    wifiInfoTable(wifiInfo),
+                  ],
+                );
+              default:
+                //TODO: Other switch cases
+                return Container();
+            }
+          }
+        });
   }
 
   Widget wifiInfoTable(WifiInfo wifiInfo) {
@@ -140,6 +146,39 @@ class HomePage extends StatelessWidget {
         DataCell(Text(wifiInfo.bssid)),
       ]),
     ]);
+  }
+
+  Widget buildMobileInfoTile(){
+    return FutureBuilder<MobileNetworkInfo>(
+      future: _connectivityController.getMobileNetworkInfo,
+        builder: (_,snapshot){
+          if (snapshot.hasError) {
+            return buildPermissionErrorWidget(snapshot.error.toString(),
+                _connectivityController.askForPhonePermission);
+          }else{
+            switch(snapshot.connectionState){
+              case ConnectionState.done:
+                MobileNetworkInfo mobileNetworkInfo = snapshot.data!;
+                return ExpansionTileCard(
+                  expandedTextColor: Themes.primaryColor,
+                  leading: Icon(
+                    Icons.signal_cellular_alt,
+                    size: 50.0,
+                  ),
+                  title: Text(mobileNetworkInfo.name,
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  subtitle: Text("Mobile Network Connection".tr),
+                  children: [mobileNetworkInfoTable(mobileNetworkInfo)],
+                );
+              default:
+              //TODO: Other switch cases
+                return Container();
+
+            }
+          }
+
+
+    });
   }
 
   Widget mobileNetworkInfoTable(MobileNetworkInfo mobileNetworkInfo) {
