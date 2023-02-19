@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:pentor/controller/ConnectivityController.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 import 'package:pentor/controller/UserController.dart';
 import 'package:pentor/firebase_options.dart';
@@ -17,8 +18,9 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await GetStorage.init();//initialize GetX Storage AKA: Shared preferences
-  UserController userController = Get.put(UserController(),permanent: true);
+  Get.lazyPut(()=>UserController());
   Get.lazyPut(()=>NavDrawerWidgetController());
+  Get.lazyPut(()=>ConnectivityController());
   runApp(const MyApp());
 }
 

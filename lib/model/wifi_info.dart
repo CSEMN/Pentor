@@ -17,7 +17,7 @@ class WifiInfo {
       this._gateway = '',
       this._subnet = '']);
 
-  static Future<WifiInfo> initWifiInfo(NetworkInfo networkInfo) async {
+  static Future<WifiInfo> initWifiInfo() async {
     String? wifiName,
         wifiBSSID,
         wifiIPv4,
@@ -26,6 +26,7 @@ class WifiInfo {
         wifiBroadcast,
         wifiSubmask;
 
+    NetworkInfo networkInfo = new NetworkInfo();
     try {
       if (!kIsWeb && Platform.isIOS) {
         var status = await networkInfo.getLocationServiceAuthorization();
