@@ -29,12 +29,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.17.0
+  intl: ^0.18.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  network_info_plus: ^2.1.4+1
+  network_info_plus: ^3.0.2
   dart_ping: ^7.0.1
   dns_client: ^0.2.1
   lan_scanner: ^3.5.0
@@ -42,17 +42,17 @@ dependencies:
   data_usage:
     git:
       url: https://github.com/fullflash/data_usage_patched
-  firebase_core: ^1.22.0
-  cloud_firestore: ^3.4.8
+  firebase_core: ^2.6.1
+  cloud_firestore: ^4.4.2
   get: ^4.6.5
   shared_preferences: ^2.0.15
   get_storage: ^2.0.3
   expansion_tile_card: ^2.0.0
   permission_handler: ^10.2.0
-  connectivity_plus: ^2.3.9
+  connectivity_plus: ^3.0.3
   telephony: ^0.2.0
-  firebase_auth: ^3.11.2
-  google_sign_in: ^5.4.4
+  firebase_auth: ^4.2.2
+  google_sign_in: ^6.0.0
 
 
 
