@@ -28,4 +28,4 @@ doc/api/
 
 # Avoid commiting .docx directory
 docs/.docx
-.idea/libraries
+.idea
