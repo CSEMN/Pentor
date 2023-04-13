@@ -54,8 +54,6 @@ dependencies:
   firebase_auth: ^4.2.2
   google_sign_in: ^6.0.0
   arp_scanner: ^1.2.7
-  cmd_plus: ^1.0.1
-  shell_cmd: ^0.2.4
 
 
 

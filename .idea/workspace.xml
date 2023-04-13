@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ad3886a-0d7f-4830-9a86-5912ce7004c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/view/dns_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/dns_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
