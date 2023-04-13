@@ -14,12 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ad3886a-0d7f-4830-9a86-5912ce7004c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/model/device.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/arp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/controller/LanScannerController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controller/LanScannerController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/lan_scanner_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/lan_scanner_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/dns_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/dns_test_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
