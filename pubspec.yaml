@@ -53,6 +53,7 @@ dependencies:
   telephony: ^0.2.0
   firebase_auth: ^4.2.2
   google_sign_in: ^6.0.0
+  arp_scanner: ^1.2.7
 
 
 
