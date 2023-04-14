@@ -8,6 +8,31 @@ class LanScannerPage extends StatelessWidget {
   final LanScannerController _lanScannerController =
       Get.put(LanScannerController(), permanent: true);
 
+  IconData getDevIcon(DeviceType type) {
+    IconData ico;
+    switch (type) {
+      case DeviceType.None:
+        ico = Icons.device_unknown_outlined;
+        break;
+      case DeviceType.Mobile:
+        ico = Icons.android;
+        break;
+      case DeviceType.Computer:
+        ico = Icons.computer;
+        break;
+      case DeviceType.Printer:
+        ico = Icons.print;
+        break;
+      case DeviceType.Other:
+        ico = Icons.devices;
+        break;
+      case DeviceType.Router:
+        ico = Icons.router;
+        break;
+    }
+    return ico;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,24 +40,29 @@ class LanScannerPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("LAN Scanner".tr),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
+      body: RefreshIndicator(
+        onRefresh: _lanScannerController.scanNetwork,
+        child: GetBuilder<LanScannerController>(
+          builder: (_) => Container(
             width: double.infinity,
+            height: double.infinity,
+            child: ListView(
+              children: [
+                ..._lanScannerController.getDevicesList
+                    .map((dev) => ListTile(
+                  title: Text(dev.name),
+                  subtitle: Text(dev.ip + "\n" + dev.mac),
+                  leading: Icon(
+                    getDevIcon(dev.type),
+                    size: 40.0,
+                  ),
+                  isThreeLine: true,
+                ))
+                    .toList(),
+              ],
+            )
           ),
-          ElevatedButton(
-              onPressed: _lanScannerController.scanNetwork,
-              child: Text("SCAN NOW")),
-          GetBuilder<LanScannerController>(
-              builder: (_) => Column(
-                    children: [
-                      Text(
-                          "Found (${_lanScannerController.getDevicesList.length}) Devices !\n"),
-                      ..._lanScannerController.getDevicesList.map((dev) => Text(dev.name + ' :\t ' + dev.ip)).toList(),
-                    ],
-                  ))
-        ],
+        ),
       ),
     );
   }
