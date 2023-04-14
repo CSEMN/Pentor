@@ -18,7 +18,6 @@
       <change beforePath="$PROJECT_DIR$/lib/controller/LanScannerController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/controller/LanScannerController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/device.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/device.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/lan_scanner_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/lan_scanner_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
