@@ -43,6 +43,11 @@ class _EN {
         'Guest Account':"Guest Account",
         'Google Sign in':"Google Sign in",
         "Sign Out":"Sign Out",
+        "Download":"Download",
+        "Upload":"Upload",
+        "Mbps":"Mbps",
+        "Kbps":"Kbps",
+        "Start":"Start",
       };
 }
 
@@ -81,5 +86,10 @@ class _AR {
         'Guest Account':"حساب زائر",
         'Google Sign in':"التسجيل بحساب جوجل",
         "Sign Out":"تسجيل الخروج",
+        "Download":"التحميل",
+        "Upload":"الرفع",
+        "Mbps":"ميجا بت / ثانيه",
+        "Kbps":"كيلو بت / ثانيه",
+        "Start":"ابداء",
       };
 }
