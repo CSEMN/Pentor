@@ -69,6 +69,10 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'Ping Test'.tr,
                       icon: Icons.network_ping,
                       onClicked: _navController.openPingTestPage),
+                  buildMenuItem(
+                      text: 'Network Logger'.tr,
+                      icon: Icons.line_style,
+                      onClicked: _navController.openNetworkLoggerPage),
                   Divider(color: Colors.white70),
                   buildMenuItem(
                       text: 'Settings'.tr,

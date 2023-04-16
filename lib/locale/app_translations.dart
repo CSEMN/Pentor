@@ -48,6 +48,8 @@ class _EN {
         "Mbps":"Mbps",
         "Kbps":"Kbps",
         "Start":"Start",
+        "Network Logger":"Network Logger",
+        "Open Logger":"Open Logger",
       };
 }
 
@@ -56,8 +58,8 @@ class _AR {
         'HOME_PAGE_TITLE': "بنتور | الرئيسية",
         'Home': "الصفحة الرئيسية",
         'Data Usage': "استخدام البيانات",
-        'DNS Test': "فحص الشبكة المحلية ",
-        'LAN Scanner': "فحص أسماء النطاقات",
+        'DNS Test': "فحص أسماء النطاقات",
+        'LAN Scanner': "فحص الشبكة المحلية",
         'Internet Speed Test': "اختبار سرعة الانترنت",
         'Ping Test': "اختبار البنج ",
         'Settings': "الإعدادات",
@@ -90,6 +92,8 @@ class _AR {
         "Upload":"الرفع",
         "Mbps":"ميجا بت / ثانيه",
         "Kbps":"كيلو بت / ثانيه",
-        "Start":"ابداء",
-      };
+        "Start":"ابدأ",
+        "Network Logger":"مسجل مراسلات الشبكه",
+        "Open Logger": "فتح السجل",
+  };
 }
