@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pentor/controller/UserController.dart';
 import 'package:pentor/view/home_page.dart';
 import 'package:pentor/view/lan_scanner_page.dart';
+import 'package:pentor/view/network_logger_page.dart';
 import 'package:pentor/view/ping_test_page.dart';
 import 'package:pentor/view/setting_page.dart';
 import 'package:pentor/view/speed_test_page.dart';
@@ -46,6 +47,9 @@ class NavDrawerWidgetController extends GetxController {
   }
   void openSpeedTestPage() {
     Get.off(()=>SpeedTestPage());
+  }
+  void openNetworkLoggerPage() {
+    Get.off(()=>NetworkLoggerPage());
   }
   void openSettingsPage() {
     Get.off(()=>SettingPage());
