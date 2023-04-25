@@ -21,6 +21,19 @@ class NavDrawerWidgetController extends GetxController {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
 
+  late final List<NavPage> pages ;
+  NavDrawerWidgetController(){
+    pages = [
+      NavPage('Data Usage', Icons.data_usage, openDataUsagePage, Colors.deepOrange),
+      NavPage('DNS Test', Icons.dns, openDnsTestPage, Colors.teal),
+      NavPage('LAN Scanner', Icons.lan, openLanScannerPage, Colors.deepPurple),
+      NavPage('Internet Speed Test', Icons.speed, openSpeedTestPage, Colors.pink),
+      NavPage('Ping Test', Icons.network_ping, openPingTestPage, Colors.amber),
+      NavPage('Network Logger', Icons.line_style, openNetworkLoggerPage, Colors.blue),
+      NavPage('Settings', Icons.settings, openSettingsPage, Colors.brown),
+    ];
+  }
+
 
 
   @override
@@ -63,4 +76,13 @@ class NavDrawerWidgetController extends GetxController {
   void onClose() {
     super.onClose();
   }
+}
+
+class NavPage{
+  String title;
+  IconData icon;
+  void Function()? action;
+  MaterialColor color;
+
+  NavPage(this.title, this.icon, this.action, this.color);
 }
