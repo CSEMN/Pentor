@@ -19,7 +19,7 @@ class DataUsagePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Mobile usage"),
+                Text("Mobile usage".tr),
                 ObxValue(
                     (p0) => Switch(
                         value: _dataUsageController.wifiOrData.value,
@@ -30,7 +30,7 @@ class DataUsagePage extends StatelessWidget {
                           _dataUsageController.wifiOrData.value = val;
                         }),
                     _dataUsageController.wifiOrData),
-                Text("WIFI usage"),
+                Text("WIFI usage".tr),
               ],
             ),
             Obx(() {
@@ -74,16 +74,16 @@ class DataUsagePage extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text("Received" +
+                                      Text("Received".tr +
                                           " : " +
                                           recvVal.toString() +
                                           " " +
-                                          recvUnit),
-                                      Text("Sent" +
+                                          recvUnit.tr),
+                                      Text("Sent".tr +
                                           " : " +
                                           sentVal.toString() +
                                           " " +
-                                          sentUnit),
+                                          sentUnit.tr),
                                     ],
                                   ),
                                   isThreeLine: true,
@@ -93,7 +93,7 @@ class DataUsagePage extends StatelessWidget {
                           ),
                         );
                       } else {
-                        return Center(child: Text("Nothing to view"));
+                        return Center(child: Text("Nothing to view".tr));
                       }
                     } else {
                       return Column(
