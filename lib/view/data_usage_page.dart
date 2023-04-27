@@ -47,7 +47,6 @@ class DataUsagePage extends StatelessWidget {
                           width: double.infinity,
                           height: 620.0,
                           child: ListView(
-                            itemExtent: 80.0,
                             children: [
                               ...appsList.map((app) {
                                 num recvVal = _dataUsageController
