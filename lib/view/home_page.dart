@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pentor/controller/ConnectivityController.dart';
 import 'package:pentor/controller/HomePageController.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:pentor/controller/NavigationDrawer_Controller.dart';
 import 'package:pentor/model/mobile_network_info.dart';
 import 'package:pentor/model/wifi_info.dart';
 import 'package:pentor/themes.dart';
@@ -11,6 +12,7 @@ import 'package:pentor/view/widgets/NavigationDrawer.dart';
 
 class HomePage extends StatelessWidget {
   final _homeController = Get.put(HomePageController(), permanent: true);
+  final _navController = Get.put(NavDrawerWidgetController(), permanent: true);
   final _connectivityController = Get.find<ConnectivityController>();
 
   @override
@@ -20,11 +22,44 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('HOME_PAGE_TITLE'.tr),
         ),
-        body: Column(
-          children: [
-            GetBuilder<ConnectivityController>(builder: (_)=>connectivityWidget()),
-
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              GetBuilder<ConnectivityController>(
+                  builder: (_) => connectivityWidget()),
+              SizedBox(height: 10.0),
+              SizedBox(
+                width: double.infinity,
+                height: 600.0,
+                child: GridView.builder(
+                  itemCount: _navController.pages.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0),
+                  itemBuilder: (BuildContext context, int index) {
+                    NavPage page = _navController.pages[index];
+                    return InkWell(
+                      onTap: page.action,
+                      child: Container(
+                        color: page.color,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              page.icon,
+                              size: 75.0,
+                            ),
+                            Text(page.title.tr)
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
         ));
   }
 
@@ -60,7 +95,7 @@ class HomePage extends StatelessWidget {
     }
   }
 
-  Widget buildPermissionErrorWidget(String title,void Function() onTap) {
+  Widget buildPermissionErrorWidget(String title, void Function() onTap) {
     return ListTile(
       tileColor: Themes.backgroundColor,
       leading: Icon(
@@ -148,15 +183,15 @@ class HomePage extends StatelessWidget {
     ]);
   }
 
-  Widget buildMobileInfoTile(){
+  Widget buildMobileInfoTile() {
     return FutureBuilder<MobileNetworkInfo>(
-      future: _connectivityController.getMobileNetworkInfo,
-        builder: (_,snapshot){
+        future: _connectivityController.getMobileNetworkInfo,
+        builder: (_, snapshot) {
           if (snapshot.hasError) {
             return buildPermissionErrorWidget(snapshot.error.toString(),
                 _connectivityController.askForPhonePermission);
-          }else{
-            switch(snapshot.connectionState){
+          } else {
+            switch (snapshot.connectionState) {
               case ConnectionState.done:
                 MobileNetworkInfo mobileNetworkInfo = snapshot.data!;
                 return ExpansionTileCard(
@@ -166,19 +201,17 @@ class HomePage extends StatelessWidget {
                     size: 50.0,
                   ),
                   title: Text(mobileNetworkInfo.name,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   subtitle: Text("Mobile Network Connection".tr),
                   children: [mobileNetworkInfoTable(mobileNetworkInfo)],
                 );
               default:
-              //TODO: Other switch cases
+                //TODO: Other switch cases
                 return Container();
-
             }
           }
-
-
-    });
+        });
   }
 
   Widget mobileNetworkInfoTable(MobileNetworkInfo mobileNetworkInfo) {

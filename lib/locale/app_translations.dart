@@ -50,9 +50,21 @@ class _EN {
         "Start":"Start",
         "Network Logger":"Network Logger",
         "Open Logger":"Open Logger",
+        "Mobile usage":"Mobile usage",
+        "WIFI usage":"WIFI usage",
+        "Received":"Received",
+        "Sent":"Sent",
+        "Nothing to view":"Nothing to view",
+        "Bytes":"Bytes",
+        "KB":"KB",
+        "MB":"MB",
+        "GB":"GB",
+        "TB":"TB",
+        "PB":"PB",
         "IP Copied to clipboard": "IP Copied to clipboard",
         'DNS Test Results': 'DNS Test Results',
-      };
+  };
+
 }
 
 class _AR {
@@ -97,8 +109,19 @@ class _AR {
         "Start":"ابدأ",
         "Network Logger":"مسجل مراسلات الشبكه",
         "Open Logger": "فتح السجل",
+        "Mobile usage":"استهلاك بيانات الهاتف",
+        "WIFI usage":"استهلاك الواي فاي",
+        "Received":"استلام",
+        "Sent":"ارسال",
+        "Nothing to view":"لا يوجد شيء لعرضه",
+        "Bytes":"بايت",
+        "KB":"كيلو بايت",
+        "MB":"ميجا بايت",
+        "GB":"جيجا بايت",
+        "TB":"تيرا بايت",
+        "PB":"بيتا بايت",
         "IP Copied to clipboard":"تم النسخ إلى الحافظة",
         'DNS Test Results':"نتائج فحص أسماء النطاقات",
+  };
 
-};
 }
