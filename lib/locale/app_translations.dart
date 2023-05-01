@@ -61,7 +61,10 @@ class _EN {
         "GB":"GB",
         "TB":"TB",
         "PB":"PB",
+        "IP Copied to clipboard": "IP Copied to clipboard",
+        'DNS Test Results': 'DNS Test Results',
   };
+
 }
 
 class _AR {
@@ -117,5 +120,8 @@ class _AR {
         "GB":"جيجا بايت",
         "TB":"تيرا بايت",
         "PB":"بيتا بايت",
+        "IP Copied to clipboard":"تم النسخ إلى الحافظة",
+        'DNS Test Results':"نتائج فحص أسماء النطاقات",
   };
+
 }
