@@ -50,6 +50,8 @@ class _EN {
         "Start":"Start",
         "Network Logger":"Network Logger",
         "Open Logger":"Open Logger",
+        "IP Copied to clipboard": "IP Copied to clipboard",
+        'DNS Test Results': 'DNS Test Results',
       };
 }
 
@@ -95,5 +97,8 @@ class _AR {
         "Start":"ابدأ",
         "Network Logger":"مسجل مراسلات الشبكه",
         "Open Logger": "فتح السجل",
-  };
+        "IP Copied to clipboard":"تم النسخ إلى الحافظة",
+        'DNS Test Results':"نتائج فحص أسماء النطاقات",
+
+};
 }
