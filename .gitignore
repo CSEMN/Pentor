@@ -32,3 +32,5 @@ docs/.docx
 .idea/libraries/Dart_SDK.xml
 .idea/libraries/Flutter_Plugins.xml
 .idea/workspace.xml
+android/app/.idea/workspace.xml
+pentor.iml
