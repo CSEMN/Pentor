@@ -35,7 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   network_info_plus: ^3.0.2
-  dart_ping: ^7.0.1
+  dart_ping: ^7.0.2
   dns_client: ^0.2.1
   lan_scanner: ^3.5.0
   network_logger: ^1.0.2
