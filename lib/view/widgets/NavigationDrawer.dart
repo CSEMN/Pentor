@@ -82,7 +82,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'SW LANG',
                       icon: Icons.language,
                       onClicked: () {
-                        if (Get.locale == Locale('en'))
+                        if (Get.locale!.languageCode == 'en')
                           Get.updateLocale(Locale('ar'));
                         else
                           Get.updateLocale(Locale('en'));

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pentor/controller/ConnectivityController.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
+import 'package:pentor/controller/SettingController.dart';
 import 'package:pentor/controller/UserController.dart';
 import 'package:pentor/firebase_options.dart';
 import 'package:pentor/locale/app_translations.dart';
@@ -21,6 +22,8 @@ void main() async{
   Get.lazyPut(()=>UserController());
   Get.lazyPut(()=>NavDrawerWidgetController());
   Get.lazyPut(()=>ConnectivityController());
+  Get.lazyPut(()=>LocaleController());
+  Get.lazyPut(()=>SettingController());
   runApp(const MyApp());
 }
 
@@ -29,13 +32,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    LocaleController localeCtrl=Get.put(LocaleController());
+    LocaleController localeCtrl=Get.find<LocaleController>();
+    SettingController settingCtrl=Get.find<SettingController>();
     return GetMaterialApp(
       title: 'Pentor',
-      locale: localeCtrl.initialLocale,
+      locale: localeCtrl.locale,
       fallbackLocale:  const Locale('en'),
       translations: AppTranslations(),
-      theme: Themes.customLightTheme,
+      theme: settingCtrl.theme,
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
