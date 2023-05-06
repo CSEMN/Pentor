@@ -23,7 +23,7 @@ class SettingPage extends StatelessWidget {
           height: height,
           child: ListView(
             children: [
-              ListTile(title: Text("General"), textColor: Colors.blue),
+              ListTile(title: Text("General".tr), textColor: Colors.blue),
               buildLanguageTile(),
               buildThemeTile(),
             ],
@@ -34,8 +34,8 @@ class SettingPage extends StatelessWidget {
   GetBuilder<SettingController> buildThemeTile() {
     return GetBuilder<SettingController>(builder: (context) {
       return ListTile(
-        title: Text("Theme"),
-        subtitle: Text(settingController.theme_str),
+        title: Text("Theme".tr),
+        subtitle: Text(settingController.theme_str.tr),
         leading: Icon(
           settingController.theme_str == 'light'
               ? Icons.light_mode
@@ -49,10 +49,10 @@ class SettingPage extends StatelessWidget {
 
   ListTile buildLanguageTile() {
     return ListTile(
-      title: Text("Language"),
+      title: Text("Language".tr),
       leading: const Icon(Icons.language, size: 40.0),
       subtitle: GetBuilder<LocaleController>(builder: (_) {
-        return Text(localeCtrl.language);
+        return Text(localeCtrl.language.tr);
       }),
       onTap: localeCtrl.switchLang,
     );

@@ -63,6 +63,14 @@ class _EN {
         "PB":"PB",
         "IP Copied to clipboard": "IP Copied to clipboard",
         'DNS Test Results': 'DNS Test Results',
+        "General":"General",
+        "Theme":"Theme",
+        "Language":"Language",
+        "English":"English",
+        "Arabic":"Arabic",
+        "light":"Light",
+        "dark":"Dark",
+        "SW LANG":"Switch language",
   };
 
 }
@@ -122,6 +130,14 @@ class _AR {
         "PB":"بيتا بايت",
         "IP Copied to clipboard":"تم النسخ إلى الحافظة",
         'DNS Test Results':"نتائج فحص أسماء النطاقات",
+        "General":"عامه",
+        "Theme":"السمه",
+        "Language":"اللغه",
+        "English":"الانجليزيه",
+        "Arabic":"العربيه",
+        "light":"مضيء",
+        "dark":"معتم",
+        "SW LANG":"تغيير اللغه",
   };
 
 }
