@@ -63,6 +63,19 @@ class _EN {
         "PB":"PB",
         "IP Copied to clipboard": "IP Copied to clipboard",
         'DNS Test Results': 'DNS Test Results',
+        'Start Test':'Start Test ',
+        "Ping Summary":"Ping Summary",
+        'Transmitted Packets':'Transmitted Packets',
+        "Lost Packets":"Lost Packets",
+        "Packets Percentage loss":"Packets Percentage loss",
+        'OK':'OK',
+        "Ping Result":"Ping Result",
+        'IP': 'IP',
+        'TTL':'TTL',
+        'Time':'Time',
+        ' ms':' ms',
+
+
   };
 
 }
@@ -122,6 +135,19 @@ class _AR {
         "PB":"بيتا بايت",
         "IP Copied to clipboard":"تم النسخ إلى الحافظة",
         'DNS Test Results':"نتائج فحص أسماء النطاقات",
+        'Start Test ':"بدء الاختبار",
+        "Ping Summary":"ملخص الاختبار",
+        'Transmitted Packets':'الحزم المرسلة',
+        "Lost Packets":"الحزم المفقودة",
+        "Packets Percentage loss":"نسبة خسارة الحزم",
+        'OK':'حسنًا',
+        "Ping Result":"نتائج الاختبار",
+        'IP': 'الأي بي',
+        'TTL':'مدة الطرد',
+        'Time':'الوقت',
+        ' ms':'  ملي ثانية'
+
+
   };
 
 }
