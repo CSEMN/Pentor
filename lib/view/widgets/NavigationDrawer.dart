@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pentor/controller/UserController.dart';
 import 'package:pentor/themes.dart';
 import 'package:pentor/controller/NavigationDrawer_Controller.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 10);
@@ -20,7 +21,7 @@ class NavigationDrawerWidget extends StatelessWidget {
             GetBuilder<UserController>(builder: (controller) {
               return buildHeader(
                   urlImage: _userController.user.photoURL ??
-                      "https://cdn1.iconfinder.com/data/icons/crimes-and-justice/100/14-64.png",
+                      "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/4-Writer-512.png",
                   name: _userController.user.displayName ?? "Anonymous".tr,
                   email: _userController.user.isAnonymous
                       ? "Guest Account".tr
@@ -78,15 +79,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'Settings'.tr,
                       icon: Icons.settings,
                       onClicked: _navController.openSettingsPage),
-                  buildMenuItem(
-                      text: 'SW LANG',
-                      icon: Icons.language,
-                      onClicked: () {
-                        if (Get.locale == Locale('en'))
-                          Get.updateLocale(Locale('ar'));
-                        else
-                          Get.updateLocale(Locale('en'));
-                      })
+                  // buildMenuItem(
+                  //     text: 'SW LANG'.tr,
+                  //     icon: Icons.language,
+                  //     onClicked: () {
+                  //       if (Get.locale!.languageCode == 'en')
+                  //         Get.updateLocale(Locale('ar'));
+                  //       else
+                  //         Get.updateLocale(Locale('en'));
+                  //     })
                 ],
               ),
             ),
@@ -108,7 +109,20 @@ class NavigationDrawerWidget extends StatelessWidget {
           padding: EdgeInsets.only(top: 30, left: 10, right: 10),
           child: Row(
             children: [
-              CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage),backgroundColor: Themes.accentColor,),
+              CachedNetworkImage(
+                imageUrl: urlImage,
+                imageBuilder: (context, imageProvider) => Container(
+                  width: 50.0,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.cover),
+                  ),
+                ),
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
               SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

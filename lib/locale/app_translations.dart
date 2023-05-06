@@ -74,8 +74,14 @@ class _EN {
         'TTL':'TTL',
         'Time':'Time',
         ' ms':' ms',
-
-
+        "General":"General",
+        "Theme":"Theme",
+        "Language":"Language",
+        "English":"English",
+        "Arabic":"Arabic",
+        "light":"Light",
+        "dark":"Dark",
+        "SW LANG":"Switch language",
   };
 
 }
@@ -146,8 +152,14 @@ class _AR {
         'TTL':'مدة الطرد',
         'Time':'الوقت',
         ' ms':'  ملي ثانية'
-
-
+        "General":"عامه",
+        "Theme":"السمه",
+        "Language":"اللغه",
+        "English":"الانجليزيه",
+        "Arabic":"العربيه",
+        "light":"مضيء",
+        "dark":"معتم",
+        "SW LANG":"تغيير اللغه",
   };
 
 }
