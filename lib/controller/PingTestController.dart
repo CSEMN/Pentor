@@ -18,12 +18,14 @@ class PingTestController extends GetxController {
     lostPackets.value = 0;
 
     stream.listen((event) {
-      if (event.response?.time != null) {
-        pingResults.add(event);
-      } else {
-        lostPackets.value++;
+      if (event.toString().startsWith("PingResponse")) {
+        if (event.response?.time != null) {
+          pingResults.add(event);
+        } else {
+          lostPackets.value++;
+        }
+        transmittedPackets.value++;
       }
-      transmittedPackets.value++;
     });
   }
 }
