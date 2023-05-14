@@ -1,6 +1,6 @@
-
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:pentor/controller/UserController.dart';
+import 'package:pentor/controller/ConnectivityController.dart';
 import 'package:pentor/view/home_page.dart';
 import 'package:pentor/view/lan_scanner_page.dart';
 import 'package:pentor/view/network_logger_page.dart';
@@ -21,52 +21,129 @@ class NavDrawerWidgetController extends GetxController {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
 
-  late final List<NavPage> pages ;
-  NavDrawerWidgetController(){
+  final ConnectivityController connectivityCtrl =
+      Get.find<ConnectivityController>();
+
+  late final List<NavPage> pages;
+
+  NavDrawerWidgetController() {
     pages = [
-      NavPage('Data Usage', Icons.data_usage, openDataUsagePage, Colors.deepOrange),
+      NavPage(
+          'Data Usage', Icons.data_usage, openDataUsagePage, Colors.deepOrange),
       NavPage('DNS Test', Icons.dns, openDnsTestPage, Colors.teal),
       NavPage('LAN Scanner', Icons.lan, openLanScannerPage, Colors.deepPurple),
-      NavPage('Internet Speed Test', Icons.speed, openSpeedTestPage, Colors.pink),
+      NavPage(
+          'Internet Speed Test', Icons.speed, openSpeedTestPage, Colors.pink),
       NavPage('Ping Test', Icons.network_ping, openPingTestPage, Colors.amber),
-      NavPage('Network Logger', Icons.line_style, openNetworkLoggerPage, Colors.blue),
+      NavPage('Network Logger', Icons.line_style, openNetworkLoggerPage,
+          Colors.blue),
       NavPage('Settings', Icons.settings, openSettingsPage, Colors.brown),
     ];
   }
-
-
 
   @override
   void onInit() {
     super.onInit();
   }
 
-  void openDataUsagePage() {
-    Get.to(()=>DataUsagePage());
+  void openDataUsagePage() async {
+    //need phone permission
+    bool hasPhonePermission = await connectivityCtrl.hasPhonePermission();
+    if (hasPhonePermission) {
+      Get.off(() => DataUsagePage());
+    } else {
+      Get.snackbar(
+        "Data Usage".tr,
+        "Data Usage Needs phone Permission".tr,
+        icon: Icon(Icons.perm_device_info_sharp),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      connectivityCtrl.askForPhonePermission();
+    }
   }
 
   void openHomePage() {
-    Get.off(()=>HomePage());
+    Get.off(() => HomePage());
   }
 
-  void openLanScannerPage() {
-    Get.off(()=>LanScannerPage());
+  void openLanScannerPage() async {
+    //need wifi connection and Location Permission
+    bool hasLocationPermission = await connectivityCtrl.hasLocationPermission();
+    if (hasLocationPermission) {
+      if (connectivityCtrl.connectivityStatus == ConnectivityResult.wifi) {
+        Get.off(() => LanScannerPage());
+      } else {
+        Get.snackbar(
+          "LAN Scanner".tr,
+          "Lan Scanner Needs Wifi Connection".tr,
+          icon: Icon(Icons.wifi_off),
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } else {
+      Get.snackbar(
+        "LAN Scanner".tr,
+        "Lan Scanner Needs Location Permission".tr,
+        icon: Icon(Icons.perm_scan_wifi_sharp),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      connectivityCtrl.askForLocationPermission();
+    }
   }
-  void openDnsTestPage() {
-    Get.off(()=>DnsTestPage());
+
+  void openDnsTestPage() async {
+    //need Internet
+    bool hasInternetConnection = connectivityCtrl.isInternetConnected();
+    if (hasInternetConnection) {
+      Get.off(() => DnsTestPage());
+    } else {
+      Get.snackbar(
+        "DNS Test".tr,
+        "DNS Test Needs Internet connection".tr,
+        icon: Icon(Icons.signal_wifi_connected_no_internet_4),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
-  void openPingTestPage() {
-    Get.off(()=>PingTestPage());
+
+  void openPingTestPage() async {
+    //need internet connection
+    bool hasInternetConnection = connectivityCtrl.isInternetConnected();
+    if (hasInternetConnection) {
+      Get.off(() => PingTestPage());
+    } else {
+      Get.snackbar(
+        "Ping Test".tr,
+        "Ping Test Needs Internet connection".tr,
+        icon: Icon(Icons.signal_wifi_connected_no_internet_4),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
-  void openSpeedTestPage() {
-    Get.off(()=>SpeedTestPage());
+
+  void openSpeedTestPage() async {
+    //need internet connection
+    bool hasInternetConnection = connectivityCtrl.isInternetConnected();
+    if (hasInternetConnection) {
+      Get.off(() => SpeedTestPage());
+    } else {
+      Get.snackbar(
+        "Internet Speed Test".tr,
+        "Speed Test Needs Internet connection".tr,
+        icon: Icon(Icons.signal_wifi_connected_no_internet_4),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
+
   void openNetworkLoggerPage() {
-    Get.off(()=>NetworkLoggerPage());
+    Get.off(() => NetworkLoggerPage());
   }
+
   void openSettingsPage() {
-    Get.off(()=>SettingPage());
+    Get.off(() => SettingPage());
   }
+
   @override
   void onReady() {
     super.onReady();
@@ -78,7 +155,7 @@ class NavDrawerWidgetController extends GetxController {
   }
 }
 
-class NavPage{
+class NavPage {
   String title;
   IconData icon;
   void Function()? action;
