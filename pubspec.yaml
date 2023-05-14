@@ -59,6 +59,7 @@ dependencies:
   flutter_internet_speed_test: ^1.4.0
   speedometer: ^1.1.2
   cached_network_image: ^3.2.3
+  internet_connection_checker: ^1.0.0+1
 
 
 
