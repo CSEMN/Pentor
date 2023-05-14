@@ -53,8 +53,8 @@ class NavDrawerWidgetController extends GetxController {
       Get.off(() => DataUsagePage());
     } else {
       Get.snackbar(
-        "Data Usage",
-        "Data Usage Needs phone Permission",
+        "Data Usage".tr,
+        "Data Usage Needs phone Permission".tr,
         icon: Icon(Icons.perm_device_info_sharp),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -74,16 +74,16 @@ class NavDrawerWidgetController extends GetxController {
         Get.off(() => LanScannerPage());
       } else {
         Get.snackbar(
-          "Lan Scanner",
-          "Lan Scanner Needs Wifi Connection",
+          "LAN Scanner".tr,
+          "Lan Scanner Needs Wifi Connection".tr,
           icon: Icon(Icons.wifi_off),
           snackPosition: SnackPosition.BOTTOM,
         );
       }
     } else {
       Get.snackbar(
-        "Lan Scanner",
-        "Lan Scanner Needs Location Permission",
+        "LAN Scanner".tr,
+        "Lan Scanner Needs Location Permission".tr,
         icon: Icon(Icons.perm_scan_wifi_sharp),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -98,8 +98,8 @@ class NavDrawerWidgetController extends GetxController {
       Get.off(() => DnsTestPage());
     } else {
       Get.snackbar(
-        "DNS Test",
-        "DNS Test Needs Internet connection",
+        "DNS Test".tr,
+        "DNS Test Needs Internet connection".tr,
         icon: Icon(Icons.signal_wifi_connected_no_internet_4),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -113,8 +113,8 @@ class NavDrawerWidgetController extends GetxController {
       Get.off(() => PingTestPage());
     } else {
       Get.snackbar(
-        "Ping Test",
-        "Ping Test Needs Internet connection",
+        "Ping Test".tr,
+        "Ping Test Needs Internet connection".tr,
         icon: Icon(Icons.signal_wifi_connected_no_internet_4),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -128,8 +128,8 @@ class NavDrawerWidgetController extends GetxController {
       Get.off(() => SpeedTestPage());
     } else {
       Get.snackbar(
-        "Speed Test",
-        "Speed Test Needs Internet connection",
+        "Internet Speed Test".tr,
+        "Speed Test Needs Internet connection".tr,
         icon: Icon(Icons.signal_wifi_connected_no_internet_4),
         snackPosition: SnackPosition.BOTTOM,
       );

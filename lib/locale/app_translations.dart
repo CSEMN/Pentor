@@ -82,6 +82,12 @@ class _EN {
         "light":"Light",
         "dark":"Dark",
         "SW LANG":"Switch language",
+        "Data Usage Needs phone Permission":"Data Usage Needs phone Permission",
+        "Lan Scanner Needs Wifi Connection":"Lan Scanner Needs Wifi Connection",
+        "Lan Scanner Needs Location Permission":"Lan Scanner Needs Location Permission",
+        "DNS Test Needs Internet connection":"DNS Test Needs Internet connection",
+        "Ping Test Needs Internet connection":"Ping Test Needs Internet connection",
+        "Speed Test Needs Internet connection":"Speed Test Needs Internet connection",
   };
 
 }
@@ -160,6 +166,13 @@ class _AR {
         "light":"مضيء",
         "dark":"معتم",
         "SW LANG":"تغيير اللغه",
+        "Data Usage Needs phone Permission":"استخدام البيانات يحتاج الي صلاحيات الهاتف",
+        "Lan Scanner Needs Wifi Connection":"فحص الشبكه يحتاج الي اتصال واي فاي",
+        "Lan Scanner Needs Location Permission":"فحص الشبكه يحتاج الي صلاحيات العنوان",
+        "DNS Test Needs Internet connection":"فحص النطاقات يحتاج الي اتصال انترنت",
+        "Ping Test Needs Internet connection":"فحص البينح يحتاج الي اتصال انترنت",
+        "Speed Test Needs Internet connection":"فحص سرعة الانترنت يحتاج الي انترنت !",
+
   };
 
 }
